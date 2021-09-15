@@ -6,13 +6,20 @@ public class RandomDemo{
         var randomNumberPicker = new Random();
         var randomNumber = randomNumberPicker.nextInt(10)+1;
         var inputReader = new Scanner(System.in);
-        System.out.println("pick a random number from 1 to 10");
+        System.out.println("Pick a random number from 1 to 10");
         var usersNumber = inputReader.nextInt();
-        if (randomNumber == usersNumber){
-            System.out.println("You are right the number was" +randomNumber);
-        }
-        else {
-            System.out.println("Unfortunately " + usersNumber + " was not the right number");
+        while (true) {
+            if (randomNumber == usersNumber) {
+                System.out.println("You are right the number was " + randomNumber);
+                break;
+            } else {
+                if(usersNumber > randomNumber)
+                System.out.println("Unfortunately " + usersNumber + " was too high");
+                else
+                    System.out.println("Unfortunately " + usersNumber + " was too low");
+                System.out.print("Try again");
+                usersNumber = inputReader.nextInt();
+            }
         }
     }
 }
